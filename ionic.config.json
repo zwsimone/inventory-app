@@ -1,0 +1,7 @@
+{
+  "name": "wok-stock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

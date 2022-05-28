@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { ItemDetailPageRoutingModule } from './item-detail-routing.module';
+import { ItemDetailPageRoutingModule } from "./item-detail-routing.module";
 
-import { ItemDetailPage } from './item-detail.page';
+import { ItemDetailPage } from "./item-detail.page";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ItemDetailPageRoutingModule
-  ],
-  declarations: [ItemDetailPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		ItemDetailPageRoutingModule,
+	],
+	declarations: [ItemDetailPage],
 })
 export class ItemDetailPageModule {}

@@ -7,6 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { SettingsPageRoutingModule } from "./settings-routing.module";
 
 import { SettingsPage } from "./settings.page";
+import { ItemsService } from "src/app/service/items.service";
 
 @NgModule({
 	imports: [
@@ -16,5 +17,6 @@ import { SettingsPage } from "./settings.page";
 		SettingsPageRoutingModule,
 	],
 	declarations: [SettingsPage],
+	providers: [ItemsService],
 })
 export class SettingsPageModule {}

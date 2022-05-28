@@ -9,7 +9,7 @@ const routes: Routes = [
 	},
 	{
 		path: "",
-		redirectTo: "home",
+		redirectTo: "item-list",
 		pathMatch: "full",
 	},
 	{
@@ -31,6 +31,13 @@ const routes: Routes = [
 		loadChildren: () =>
 			import("./page/settings/settings.module").then(
 				(m) => m.SettingsPageModule
+			),
+	},
+	{
+		path: "item-manager",
+		loadChildren: () =>
+			import("./page/item-manager/item-manager.module").then(
+				(m) => m.ItemManagerPageModule
 			),
 	},
 ];

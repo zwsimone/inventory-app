@@ -1,16 +1,20 @@
 import { NgModule } from "@angular/core";
+import {
+	canActivate,
+	redirectLoggedInTo,
+	redirectUnauthorizedTo,
+} from "@angular/fire/auth-guard";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([""]);
+const redirectLoggedInToHome = () => redirectLoggedInTo(["item-list"]);
 
 const routes: Routes = [
 	{
-		path: "home",
+		path: "",
 		loadChildren: () =>
 			import("./home/home.module").then((m) => m.HomePageModule),
-	},
-	{
-		path: "",
-		redirectTo: "item-list",
-		pathMatch: "full",
+		...canActivate(redirectLoggedInToHome),
 	},
 	{
 		path: "item-list",
@@ -18,6 +22,7 @@ const routes: Routes = [
 			import("./page/item-list/item-list.module").then(
 				(m) => m.ItemListPageModule
 			),
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 	{
 		path: "item-detail",
@@ -25,6 +30,7 @@ const routes: Routes = [
 			import("./page/item-detail/item-detail.module").then(
 				(m) => m.ItemDetailPageModule
 			),
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 	{
 		path: "settings",
@@ -32,6 +38,7 @@ const routes: Routes = [
 			import("./page/settings/settings.module").then(
 				(m) => m.SettingsPageModule
 			),
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 	{
 		path: "item-manager",
@@ -39,6 +46,7 @@ const routes: Routes = [
 			import("./page/item-manager/item-manager.module").then(
 				(m) => m.ItemManagerPageModule
 			),
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 	{
 		path: "stock-summary",
@@ -46,6 +54,7 @@ const routes: Routes = [
 			import("./page/stock-summary/stock-summary.module").then(
 				(m) => m.StockSummaryPageModule
 			),
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 	{
 		path: "stock-history",
@@ -53,6 +62,7 @@ const routes: Routes = [
 			import("./page/stock-history/stock-history.module").then(
 				(m) => m.StockHistoryPageModule
 			),
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 ];
 

@@ -40,7 +40,6 @@ export class ItemFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.item);
 		if (this.item === undefined) {
 			this.item = this.defaultItem();
 		}

@@ -9,19 +9,23 @@
 
 <ion-content>
 	<ion-searchbar [formControl]="searchControl"></ion-searchbar>
-	<ng-container *ngFor="let item of displayItems">
-		<ion-button
-			expand="full"
-			fill="clear"
-			(click)="navigateToItemDetails(item)"
-		>
-			<div class="button">
-				<div class="left">{{ item.name }}</div>
-				<div class="right">
-					<ion-label>Qty: {{ item.quantity }}</ion-label>
+	<ion-list>
+		<ng-container *ngFor="let item of displayItems">
+			<ion-item>
+				<ion-button
+					expand="full"
+					fill="clear"
+					(click)="navigateToItemDetails(item)"
+				>
+					<div class="button">
+						<div class="left">{{ item.name }}</div>
+						<div class="right">
+							<ion-label>Qty: {{ item.quantity }}</ion-label>
+						</div>
+					</div>
 					<ion-icon name="chevron-forward-outline"></ion-icon>
-				</div>
-			</div>
-		</ion-button>
-	</ng-container>
+				</ion-button>
+			</ion-item>
+		</ng-container>
+	</ion-list>
 </ion-content>

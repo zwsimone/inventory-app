@@ -8,6 +8,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
 	public appPages = [
 		{ title: "Item List", url: "/item-list" },
+		{ title: "Daily Inventory Summary", url: "/stock-summary" },
 		{ title: "Settings", url: "/settings" },
 	];
 

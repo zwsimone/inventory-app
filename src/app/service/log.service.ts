@@ -26,6 +26,27 @@ export class LogService {
 		);
 	}
 
+	getLogsToday(): Observable<ILog[]> {
+		const logRef = collection(this.firestore, "log");
+		return (
+			collectionData(logRef, { idField: "id" }) as Observable<ILog[]>
+		).pipe(
+			map((logs: ILog[]) =>
+				logs.filter((log: ILog) => {
+					const logDate = new Date(log.date);
+					const currentDate = new Date();
+
+					if (
+						logDate.getMonth() === currentDate.getMonth() &&
+						logDate.getDate() === currentDate.getDate()
+					)
+						return true;
+					else return false;
+				})
+			)
+		);
+	}
+
 	addLog(log: ILog) {
 		const logRef = collection(this.firestore, "log");
 		return addDoc(logRef, log);

@@ -40,6 +40,13 @@ const routes: Routes = [
 				(m) => m.ItemManagerPageModule
 			),
 	},
+	{
+		path: "stock-summary",
+		loadChildren: () =>
+			import("./page/stock-summary/stock-summary.module").then(
+				(m) => m.StockSummaryPageModule
+			),
+	},
 ];
 
 @NgModule({

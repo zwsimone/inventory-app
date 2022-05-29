@@ -16,7 +16,12 @@
 	<ion-list>
 		<ng-container *ngFor="let item of displayItems">
 			<ion-item>
-				<ion-label>{{ item.name }}</ion-label>
+				<div class="item">
+					<ion-label class="left">{{ item.name }}</ion-label>
+					<ion-label class="right"
+						>Qty: {{ item.quantity }}</ion-label
+					>
+				</div>
 				<ion-button slot="end" (click)="itemOptions(item)" fill="clear">
 					<ion-icon name="ellipsis-vertical"></ion-icon>
 				</ion-button>

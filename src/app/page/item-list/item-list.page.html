@@ -17,10 +17,10 @@
 		>
 			<div class="button">
 				<div class="left">{{ item.name }}</div>
-				<ion-icon
-					class="right"
-					name="chevron-forward-outline"
-				></ion-icon>
+				<div class="right">
+					<ion-label>Qty: {{ item.quantity }}</ion-label>
+					<ion-icon name="chevron-forward-outline"></ion-icon>
+				</div>
 			</div>
 		</ion-button>
 	</ng-container>

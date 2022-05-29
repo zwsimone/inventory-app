@@ -47,6 +47,13 @@ const routes: Routes = [
 				(m) => m.StockSummaryPageModule
 			),
 	},
+	{
+		path: "stock-history",
+		loadChildren: () =>
+			import("./page/stock-history/stock-history.module").then(
+				(m) => m.StockHistoryPageModule
+			),
+	},
 ];
 
 @NgModule({

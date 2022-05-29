@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Inventory History</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col>Date</ion-col>
+					<ion-col>Item</ion-col>
+					<ion-col>Mode</ion-col>
+					<ion-col>Quantity</ion-col>
+					<ion-col>Total Quantity</ion-col>
+				</ion-row>
+				<ng-container *ngFor="let log of logs">
+					<ion-row>
+						<ion-col>{{ log.date | date: 'dd/MM/YYYY' }}</ion-col>
+						<ion-col>{{ log.itemName }}</ion-col>
+						<ion-col>{{ log.mode }}</ion-col>
+						<ion-col>{{ log.itemQty }}</ion-col>
+						<ion-col>{{ log.itemTotal }}</ion-col>
+					</ion-row>
+				</ng-container>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

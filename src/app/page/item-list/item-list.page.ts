@@ -51,6 +51,10 @@ export class ItemListPage implements OnInit {
 	}
 
 	navigateToItemDetails(item: Item) {
-		this.router.navigateByUrl("item-detail", { replaceUrl: true });
+		this.router.navigateByUrl("item-detail", {
+			state: {
+				item: item,
+			},
+		});
 	}
 }

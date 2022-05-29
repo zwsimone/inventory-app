@@ -38,7 +38,7 @@ export class ItemsService {
 		return deleteDoc(itemDocRef);
 	}
 
-	updateitem(item: Item) {
+	updateItem(item: Item) {
 		const itemDocRef = doc(this.firestore, `items/${item.id}`);
 		return updateDoc(itemDocRef, {
 			name: item.name,

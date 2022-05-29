@@ -10,6 +10,7 @@ import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
 import { getAuth, provideAuth } from "@angular/fire/auth";
 import { environment } from "src/environments/environment";
 import { getFirestore, provideFirestore } from "@angular/fire/firestore";
+import { ModalModule } from "./modal/modal.module";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { getFirestore, provideFirestore } from "@angular/fire/firestore";
 		provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideFirestore(() => getFirestore()),
 		provideAuth(() => getAuth()),
+		ModalModule,
 	],
 	providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 	bootstrap: [AppComponent],

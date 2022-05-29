@@ -43,6 +43,13 @@ export class LogService {
 						return true;
 					else return false;
 				})
+			),
+			map((logs: ILog[]) =>
+				logs.sort((log1, log2) => {
+					if (log1.itemName > log2.itemName) return 1;
+					if (log1.itemName < log2.itemName) return -1;
+					return 0;
+				})
 			)
 		);
 	}

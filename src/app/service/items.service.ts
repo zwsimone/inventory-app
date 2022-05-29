@@ -7,7 +7,7 @@ import {
 	doc,
 	updateDoc,
 } from "@firebase/firestore";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { Item } from "../model/item";
 
 @Injectable({
@@ -18,9 +18,17 @@ export class ItemsService {
 
 	getItems(): Observable<Item[]> {
 		const itemsRef = collection(this.firestore, "items");
-		return collectionData(itemsRef, { idField: "id" }) as Observable<
-			Item[]
-		>;
+		return (
+			collectionData(itemsRef, { idField: "id" }) as Observable<Item[]>
+		).pipe(
+			map((items: Item[]) =>
+				items.sort((item1, item2) => {
+					if (item1.name > item2.name) return 1;
+					if (item1.name < item2.name) return -1;
+					return 0;
+				})
+			)
+		);
 	}
 
 	getItem(id: string): Observable<Item> {

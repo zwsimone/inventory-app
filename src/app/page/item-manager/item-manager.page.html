@@ -1,6 +1,10 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-button slot="start" (click)="navigateBackToSettings()">
+		<ion-button
+			slot="start"
+			(click)="navigateBackToSettings()"
+			fill="clear"
+		>
 			<ion-icon name="arrow-back-outline"></ion-icon>
 		</ion-button>
 		<ion-title>Item Manager</ion-title>
@@ -13,7 +17,7 @@
 		<ng-container *ngFor="let item of displayItems">
 			<ion-item>
 				<ion-label>{{ item.name }}</ion-label>
-				<ion-button slot="end" (click)="itemOptions(item)">
+				<ion-button slot="end" (click)="itemOptions(item)" fill="clear">
 					<ion-icon name="ellipsis-vertical"></ion-icon>
 				</ion-button>
 			</ion-item>

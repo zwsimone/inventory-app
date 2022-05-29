@@ -41,10 +41,10 @@ export class ItemManagerPage implements OnInit {
 			this.displayItems = this.items;
 			await itemsLoading.dismiss();
 		});
-		this.searchControl.valueChanges.subscribe((search) => {
+		this.searchControl.valueChanges.subscribe((search: string) => {
 			if (search) {
 				this.displayItems = this.items.filter((item) =>
-					item.name.includes(search)
+					item.name.toUpperCase().includes(search.toUpperCase())
 				);
 			} else {
 				this.displayItems = this.items;

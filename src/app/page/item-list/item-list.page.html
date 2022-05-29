@@ -8,9 +8,20 @@
 </ion-header>
 
 <ion-content>
-	<ion-searchbar>
-		<ion-button>
-			<ion-icon name="barcode-outline"></ion-icon>
+	<ion-searchbar [formControl]="searchControl"></ion-searchbar>
+	<ng-container *ngFor="let item of displayItems">
+		<ion-button
+			expand="full"
+			fill="clear"
+			(click)="navigateToItemDetails(item)"
+		>
+			<div class="button">
+				<div class="left">{{ item.name }}</div>
+				<ion-icon
+					class="right"
+					name="chevron-forward-outline"
+				></ion-icon>
+			</div>
 		</ion-button>
-	</ion-searchbar>
+	</ng-container>
 </ion-content>
